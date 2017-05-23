@@ -8,14 +8,12 @@ const bot = new TelegramBot(token, {polling: true})
 function getResponse(text) {
     const pattern = /\bSussu\b/g
     if (text[text.length-1] == '?') {
-        if (Math.random() > .1)
+        if (Math.random() > .23)
             return "";
         return "7"
     } else if ((match = pattern.exec(text)) != null) {
     	return  "AI SUSSU!"
     } else if (text[text.length-1] == '!' || text[text.length-1] == '.') {
-        if (Math.random() > .1)
-            return "";
         return "O cara é bom!"
     }
     return ""
