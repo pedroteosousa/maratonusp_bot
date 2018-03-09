@@ -3,16 +3,20 @@ const fs = require('fs')
 
 const token = fs.readFileSync('token.txt', 'utf8')
 
-const bot = new TelegramBot(token, {polling: true})
+const bot = new TelegramBot(token.trim(), {polling: true})
 
 function getResponse(text) {
-    const pattern = /\bSussu\b/g
-    if (text[text.length-1] == '?') {
+	text = text.toLowerCase()
+    const sussu_pattern = /\bsussu/g
+	const rodando_pattern =  /\broda|\bgira|\brotacionar|\brotação/g
+    if ((match = sussu_pattern.exec(text)) != null) {
+    	return  "AI SUSSU!"
+    } else if ((match = rodando_pattern.exec(text)) != null) {
+    	return  "RODANDO!"
+    } else if(text[text.length-1] == '?') {
         if (Math.random() > .1)
             return "";
         return "7"
-    } else if ((match = pattern.exec(text)) != null) {
-    	return  "AI SUSSU!"
     } else if (text[text.length-1] == '!' || text[text.length-1] == '.') {
         if (Math.random() > .1)
             return "";
@@ -23,5 +27,5 @@ function getResponse(text) {
 
 bot.on('message', (msg) => {
     var response = getResponse(msg.text)
-    if (msg.text != undefined && response.length) bot.sendMessage(msg.chat.id, response)
+	if (msg.text != undefined && response.length) bot.sendMessage(msg.chat.id, response)
 })
