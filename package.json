@@ -1,16 +1,25 @@
 {
   "name": "maratonime_bot",
   "version": "1.0.0",
-  "description": "",
   "main": "bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node bot.js"
   },
   "author": "Pedro Sousa <pedroteosousa@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "fs": "0.0.1-security",
     "node-telegram-bot-api": "^0.27.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedroteosousa/maratonime_bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pedroteosousa/maratonime_bot/issues"
+  },
+  "homepage": "https://github.com/pedroteosousa/maratonime_bot#readme",
+  "description": ""
 }

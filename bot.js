@@ -6,13 +6,15 @@ const token = fs.readFileSync('token.txt', 'utf8')
 const bot = new TelegramBot(token.trim(), {polling: true})
 
 function getResponse(text) {
+	if (text == undefined || !text.length)
+		return ""
 	text = text.toLowerCase()
     const sussu_pattern = /\bsussu/g
-	const rodando_pattern =  /\broda|\bgira|\brotacionar|\brotação/g
+	const rodando_pattern =  /\broda|\bgira|\brotaciona|\brotação/g
     if ((match = sussu_pattern.exec(text)) != null) {
     	return  "AI SUSSU!"
     } else if ((match = rodando_pattern.exec(text)) != null) {
-    	return  "RODANDO!"
+    	return  "RODANDO"
     } else if(text[text.length-1] == '?') {
         if (Math.random() > .1)
             return "";
