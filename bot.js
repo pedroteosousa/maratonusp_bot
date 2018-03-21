@@ -10,7 +10,7 @@ function getResponse(text) {
 		return ""
 	text = text.toLowerCase()
     const sussu_pattern = /\bsussu/g
-	const rodando_pattern =  /\broda|\bgira|\brotaciona|\brotação/g
+	const rodando_pattern =  /\broda|\bgira|\brota/g
     if ((match = sussu_pattern.exec(text)) != null) {
     	return  "AI SUSSU!"
     } else if ((match = rodando_pattern.exec(text)) != null) {
