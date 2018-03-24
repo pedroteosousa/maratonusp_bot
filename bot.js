@@ -6,15 +6,18 @@ const token = fs.readFileSync('token.txt', 'utf8')
 const bot = new TelegramBot(token.trim(), {polling: true})
 
 function getResponse(text) {
-	if (text == undefined || !text.length)
-		return ""
-	text = text.toLowerCase()
+    if (text == undefined || !text.length)
+        return ""
+    text = text.toLowerCase()
     const sussu_pattern = /\bsussu/g
-	const rodando_pattern =  /\broda|\bgira|\brota/g
+    const rodando_pattern =  /\broda|\bgira|\brota/g
+    const familiar_pattern_1 = /\bporra|\bpoha|\bcaralho|\bcaraio|\bcu|\brola|\bbuceta/g
+    const familiar_pattern_2 = /\bcacete|\bpiroca|\bputa|\bfoda|\bcaguei|\bmerda|\bbosta/g
+    const familiar_pattern_3 = /\bcaceta|\bpau|\banus|\bânus\btomanocu\bfude\bcarai\bfuck/g
     if ((match = sussu_pattern.exec(text)) != null) {
-    	return  "AI SUSSU!"
+        return  "AI SUSSU!"
     } else if ((match = rodando_pattern.exec(text)) != null) {
-    	return  "RODANDO"
+        return  "RODANDO"
     } else if(text[text.length-1] == '?') {
         if (Math.random() > .1)
             return "";
@@ -23,6 +26,12 @@ function getResponse(text) {
         if (Math.random() > .1)
             return "";
         return "O cara é bom!"
+    } else if ((match = familiar_pattern_1.exec(text)) != null ||
+     (match = familiar_pattern_2.exec(text)) != null || 
+     (match = familiar_pattern_3.exec(text)) != null) {
+        if (Math.random() > .3)
+            return "";
+        return  "Ambiente familiar"
     }
     return ""
 }
