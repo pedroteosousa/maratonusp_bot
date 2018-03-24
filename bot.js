@@ -38,5 +38,5 @@ function getResponse(text) {
 
 bot.on('message', (msg) => {
     var response = getResponse(msg.text)
-    if (msg.text != undefined && response.length) bot.sendMessage(msg.chat.id, response)
+	if (msg.text != undefined && response.length) bot.sendMessage(msg.chat.id, response)
 })
