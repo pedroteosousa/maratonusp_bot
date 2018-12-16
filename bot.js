@@ -11,10 +11,13 @@ function getResponse(text) {
     text = text.toLowerCase()
     const sussu_pattern = /\bsussu/g
     const rodando_pattern =  /\broda|\bgira|\brota/g
+    const maratonusp_pattern = /maratonime/g
     const familiar_pattern_1 = /\bporra|\bpoha|\bcaralho|\bcaraio|\bcu|\brola|\bbuceta/g
     const familiar_pattern_2 = /\bcacete|\bpiroca|\bputa|\bfoda|\bcaguei|\bmerda|\bbosta/g
     const familiar_pattern_3 = /\bcaceta|\bpau|\banus|\bânus\btomanocu\bfude\bcarai\bfuck/g
-    if ((match = sussu_pattern.exec(text)) != null) {
+    if ((match = maratonusp_pattern.exec(text)) != null) {
+        return "MaratonUSP*"
+    } else if ((match = sussu_pattern.exec(text)) != null) {
         return  "AI SUSSU!"
     } else if ((match = rodando_pattern.exec(text)) != null) {
         return  "RODANDO"
